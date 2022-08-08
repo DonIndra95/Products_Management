@@ -196,15 +196,12 @@ const updateCart = async (req, res) => {
 
     //let thisProduct=checkCartId.items.find(e=>e.productId._id==productId)//this find is for array to reduce Db call
 
-    let thisProduct = await productModel.findOne({
-      _id: productId,
-      isDeleted: false,
-    });
+    let thisProduct = await productModel.findById(productId);
 
     if (!thisProduct)
       return res.status(400).send({
         status: false,
-        message: "Product has been deleted or does'nt exists",
+        message: "Product does'nt exist",
       });
 
     let update = {};
