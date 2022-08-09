@@ -385,7 +385,7 @@ const putUserValidations = async (req, res, next) => {
       "image/gif",
       "image/bmp",
     ];
-    console.log(req.body)
+   //console.log(req.body)
     if(req.body.profileImage?.length==0)
     return res.status(400).send({
       status: false,
